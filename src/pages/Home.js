@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const services = [
-  { id: 1, name: 'إدارة حسابات السوشيال ميديا وإطلاق الحملات الإعلانية الممولة', price: 150 },
+  { id: 1, name: 'إدارة حسابات التواصل الاجتماعي وإطلاق الحملات الإعلانية الممولة', price: 150 },
   { id: 2, name: 'تحسين محركات البحث SEO، حملات إعلانات Google وتوثيق الخرائط الذكية', price: 200 },
   { id: 3, name: 'تصميم الهوية البصرية والشعارات المتكاملة للبراندات', price: 100 },
 ];
@@ -11,8 +11,7 @@ export default function Home() {
   const [customReq, setCustomReq] = useState({ name: '', email: '', reqs: '' });
   const [loading, setLoading] = useState(false);
   
-  // يقرأ الرابط ديناميكياً من متغيرات البيئة لـ Vercel المربوط بريندر
-  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
+  const BACKEND_URL = "https://back-yc0g.onrender.com";
 
   const handleCustomWebsiteSubmit = async (e) => {
     e.preventDefault();
@@ -22,7 +21,7 @@ export default function Home() {
       alert(res.data.msg);
       setCustomReq({ name: '', email: '', reqs: '' });
     } catch (err) { 
-      alert('فشل في إرسال المتطلبات، الرجاء التحقق من جدار الحماية أو تجربة المحاولة لاحقاً'); 
+      alert('فشل في إرسال المتطلبات، الرجاء المحاولة لاحقاً'); 
     } finally {
       setLoading(false);
     }
@@ -50,7 +49,6 @@ export default function Home() {
         <p style={{ color: '#7f8c8d' }}>تصفح الخدمات المتكاملة واشترك فوراً لتبدأ أعمالك معنا</p>
       </header>
       
-      {/* قسم الخدمات والاشتراكات المباشرة */}
       <section style={{ marginBottom: '50px' }}>
         <h2 style={{ borderRight: '5px solid #2980b9', paddingRight: '10px', color: '#34495e' }}>🔒 خدمات الاشتراك الفوري والترقية عبر الإنترنت</h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '25px', marginTop: '20px' }}>
@@ -68,7 +66,6 @@ export default function Home() {
 
       <hr style={{ border: '0', height: '1px', background: '#e0e0e0', margin: '40px 0' }} />
 
-      {/* أقسام إنشاء مواقع الويب المنفصلة */}
       <section>
         <h2 style={{ borderRight: '5px solid #27ae60', paddingRight: '10px', color: '#34495e' }}>💻 قسم تصميم وحلول هندسة مواقع الويب</h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(450px, 1fr))', gap: '30px', marginTop: '20px' }}>
